@@ -1,0 +1,36 @@
+<project name="oee-driver" basedir="." default="generate-jar" >
+	<property name="src.dir" value="src"/>
+	<property name="lib.dir" value="lib"/>
+	<property name="build.dir" value="ant-build"/>
+	<property name="dist.dir" value="dist"/>
+		
+    <path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar"/>
+	</path>
+	
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+	    <delete dir="${dist.dir}"/>
+    </target>
+            
+    <target name="generate-jar">
+    	
+    	<antcall target="compile"/>
+    	
+    	<mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.dir}/oee-driver.jar" basedir="${build.dir}">
+        	<manifest>
+        	   	<attribute name="Permissions"   value="all-permissions"/>
+        	   	<attribute name="Codebase"      value="*"/>
+        	</manifest>
+        </jar>
+    </target>
+	
+    <target name="compile" >
+        
+    	<mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath" debug="true" />
+    	        
+    </target>    
+		
+</project>
