@@ -1,4 +1,4 @@
-package br.feevale.tc.oee.simulador.ws;
+package br.feevale.tc.oee.driver.ws;
 
 public class Constants {
 	

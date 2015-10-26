@@ -1,4 +1,4 @@
-package br.feevale.tc.oee.simulador.ws;
+package br.feevale.tc.oee.driver.ws;
 
 import static org.junit.Assert.assertNull;
 
